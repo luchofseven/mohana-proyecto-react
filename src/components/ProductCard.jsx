@@ -6,8 +6,8 @@ export default function ProductCard ({ product }) {
     <div className='product-card'>
       <Link to={`/productos/${id}`}>
         <img src={img} alt={name} />
-        <h3>{name}</h3>
-        <h4>${price}</h4>
+        <h4>{name}</h4>
+        <h5>${price}</h5>
       </Link>
     </div>
   )

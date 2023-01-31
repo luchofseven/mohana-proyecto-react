@@ -1,25 +1,45 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import { toastNotify } from '../notify/toastNotify'
 
 export default function Cart () {
   const { cart, clear, deleteItem, getItemQty, getItemPrice } =
     useContext(CartContext)
 
   function deleteProductById (id) {
-    const confirm = window.confirm('¿Desea eliminar éste producto del carrito?') // MEJORAR NOTIFICACION
-    if (confirm) deleteItem(id)
+    const confirm = window.confirm('¿Desea eliminar éste producto del carrito?')
+    if (confirm) {
+      deleteItem(id)
+      toastNotify({ message: '¡Se eliminó el producto del carrito!' })
+    }
   }
 
   function deleteAllProducts () {
     const confirm = window.confirm(
       '¿Desea eliminar todos los productos del carrito?'
-    ) // MEJORAR NOTIFICACION
-    if (confirm) clear()
+    )
+    if (confirm) {
+      clear()
+      toastNotify({ message: '¡Se vació correctamente el carrito!' })
+    }
   }
 
   return (
     <>
+      <ToastContainer
+        position='top-center'
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme='colored'
+      />
       {cart.length > 0
         ? (
           <div className='section'>
@@ -30,6 +50,8 @@ export default function Cart () {
                     <img src={el.img} alt={el.name} />
                     <h3>{el.name}</h3>
                     <h4>Cantidad: {el.quantity}</h4>
+                    <small>Talle: {el.selectSize}</small>
+                    <small>Color: {el.selectColor}</small>
                     <button onClick={() => deleteProductById(el.id)}>
                       Eliminar producto
                     </button>
