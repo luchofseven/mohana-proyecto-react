@@ -1,6 +1,3 @@
-![Mohana Logo]
-(https://github.com/luchofseven/mohana-proyecto-react/blob/master/public/mohana-sticker.png?raw=true)
-
 # Mohana Indumentaria
 
 Mohana Indumentaria es un proyecto personal/familiar realizado con [Create React App](https://github.com/facebook/create-react-app), con el fin de poner en práctica mis conocimientos como desarrollador front end, como también incorporar algunos nuevos.
