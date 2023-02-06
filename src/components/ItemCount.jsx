@@ -53,7 +53,7 @@ export default function ItemCount ({ product }) {
       <small>Disponible: {stockAvailable} unidades</small>
       <button onClick={handleChangeSubtract}>-</button>
       <button onClick={addToCart}>Agregar al carrito</button>
-      <button onClick={handleChangeAdd}>+</button>
+      <button onClick={handleChangeAdd}> +</button>
     </div>
   )
 }
