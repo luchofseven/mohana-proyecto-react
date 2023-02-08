@@ -10,7 +10,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppBtn from './components/WhatsAppBtn'
 import ProductDetail from './containers/ProductDetail'
-import './styles/styles.css'
 
 export function App () {
   return (

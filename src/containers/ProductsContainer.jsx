@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, memo } from 'react'
 import { getProducts } from '../services/getData'
 import ProductCard from '../components/ProductCard'
 import Loader from '../components/Loader'
 
-export default function ProductsContainer () {
+const ProductsContainer = () => {
   const [products, setProducts] = useState([])
-  const [productsError, setProductsError] = useState()
+  const [productsError, setProductsError] = useState({})
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -23,11 +23,13 @@ export default function ProductsContainer () {
 
   return (
     <section className='products-container'>
-      {loading === true ? <Loader /> : <></>}
-      {products.length > 0 ? products.map(product => <ProductCard key={product.id} product={product} />) : <></>}
+      {loading ? <Loader /> : ''}
+      {products.length > 0 ? products.map(product => <ProductCard key={product.id} product={product} />) : ''}
       <div style={{ textAlign: 'center' }}>
-        {productsError !== undefined ? <h4>{productsError.error}</h4> : <></>}
+        {productsError !== {} ? <h4>{productsError.error}</h4> : ''}
       </div>
     </section>
   )
 }
+
+export default memo(ProductsContainer)
