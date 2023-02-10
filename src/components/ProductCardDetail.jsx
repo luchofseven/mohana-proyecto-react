@@ -1,25 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
+import Sizes from './Sizes'
+import Colors from './Colors'
 
 export default function ProductCardDetail ({ product }) {
   const { img, name, price, size, color } = product
 
-  const sizes = size.map((size, index) => (
-    <option key={index} value={size}>
-      {size}
-    </option>
-  ))
-  const initialSize = sizes[0].props.value
-  const [selectSize, setSelectSize] = useState(initialSize)
-
-  const colors = color.map((color, index) => (
-    <option key={index} value={color}>
-      {color}
-    </option>
-  ))
-  const initialColor = colors[0].props.value
-  const [selectColor, setSelectColor] = useState(initialColor)
+  const [selectSize, setSelectSize] = useState(size[0])
+  const [selectColor, setSelectColor] = useState(color[0])
 
   function handleSelectSize (e) {
     setSelectSize(e.target.value)
@@ -38,23 +27,11 @@ export default function ProductCardDetail ({ product }) {
         <h3>{name}</h3>
         <h4>${price}</h4>
         <div className='product-card-description-sizes'>
-          <p>Talle:</p>
-          <select value={selectSize} onChange={handleSelectSize}>
-            {sizes}
-          </select>
+          <Sizes sizes={size} handleSelectSize={handleSelectSize} />
         </div>
-        {color[0] === ''
-          ? (
-              ''
-            )
-          : (
-            <div className='product-card-description-colors'>
-              <p>Color:</p>
-              <select value={selectColor} onChange={handleSelectColor}>
-                {colors}
-              </select>
-            </div>
-            )}
+        <div className='product-card-description-colors'>
+          <Colors colors={color} handleSelectColor={handleSelectColor} />
+        </div>
       </div>
       <div className='product-card-description-cart'>
         <ItemCount product={newProduct} />

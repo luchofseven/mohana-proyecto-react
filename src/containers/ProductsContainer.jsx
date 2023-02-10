@@ -1,9 +1,9 @@
-import { useState, useEffect, memo } from 'react'
+import { useState, useEffect } from 'react'
 import { getProducts } from '../services/getData'
 import ProductCard from '../components/ProductCard'
 import Loader from '../components/Loader'
 
-const ProductsContainer = () => {
+export default function ProductsContainer () {
   const [products, setProducts] = useState([])
   const [productsError, setProductsError] = useState({})
   const [loading, setLoading] = useState(false)
@@ -12,7 +12,8 @@ const ProductsContainer = () => {
     setLoading(true)
     getProducts()
       .then(res => {
-        setProducts(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        const response = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        setProducts(response)
         setLoading(false)
       })
       .catch(err => {
@@ -31,5 +32,3 @@ const ProductsContainer = () => {
     </section>
   )
 }
-
-export default memo(ProductsContainer)

@@ -17,6 +17,7 @@ export default function MyProvider ({ children }) {
 
   const addItem = (item, quantity) => {
     const newItem = { ...item, quantity }
+
     if (isInCart(newItem.id)) {
       const findProduct = cart.find((item) => item.id === newItem.id)
       const productIndex = cart.indexOf(findProduct)

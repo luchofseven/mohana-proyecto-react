@@ -1,10 +1,10 @@
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../services/getData'
 import ProductCardDetail from '../components/ProductCardDetail'
 import Loader from '../components/Loader'
 
-const ProductDetail = () => {
+export default function ProductDetail () {
   const [product, setProduct] = useState(null)
   const [productError, setProductError] = useState({})
   const [loading, setLoading] = useState(false)
@@ -16,7 +16,8 @@ const ProductDetail = () => {
     setLoading(true)
     getProduct(id)
       .then(res => {
-        setProduct({ id: res.id, ...res.data() })
+        const response = { id: res.id, ...res.data() }
+        setProduct(response)
         setLoading(false)
       })
       .catch(err => {
@@ -30,10 +31,8 @@ const ProductDetail = () => {
       {product !== null ? <ProductCardDetail product={product} /> : ''}
       {loading === true ? <Loader /> : ''}
       <div style={{ textAlign: 'center' }}>
-        {productError !== {} ? <h4>{productError.error}</h4> : <></>}
+        {productError !== {} ? <h4>{productError.error}</h4> : ''}
       </div>
     </div>
   )
 }
-
-export default memo(ProductDetail)

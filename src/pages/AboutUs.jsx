@@ -1,9 +1,14 @@
 export default function AboutUs () {
   return (
     <section className='section'>
-      <h2>Acerca de nosotros:</h2>
-      <p>Falta desarrollar ésta página</p>
-      <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolores vitae inventore, saepe, sint aut ut corrupti illo autem dolorum enim similique modi asperiores. Quos, ut! Nemo non esse autem voluptatum! Facilis magnam pariatur aliquid consectetur obcaecati. Commodi nisi illo ipsam voluptas maxime! Veritatis consequuntur omnis recusandae perferendis, corporis beatae.</small>
+      <article className='about-us'>
+        <h2>Acerca de nosotros</h2>
+        <p>👋 ¡Hola!, somos Mohana Indumentaria, un emprendimiento familiar basado en la venta minorista de indumentaria y calzado femenino.</p>
+        <p>Nos encontramos físicamente en La Gallareta, provincia de Santa Fe.</p>
+        <p>Podes visitar nuestra página online actualmente en el la siguiente dirección: <i><b><a href='https://www.mohanaindumentaria.com.ar' target='_blank' rel='noreferrer'>Mohana Indumentaria</a></b></i>.</p>
+        <p>Realizamos envíos a todo el país y contamos con diferentes métodos de pago.</p>
+        <p>¡Muchas gracias por tu atención 🙌!</p>
+      </article>
     </section>
   )
 }
