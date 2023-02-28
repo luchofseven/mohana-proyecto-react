@@ -45,8 +45,12 @@ img {
 
 /* SECTION para contenedores en general */
 .section {
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -137,7 +141,7 @@ img {
 
 /* FOOTER */
 .footer {
-  background-color: #eeaddf;
+  background-color: var(--main-color);
   width: 100%;
   letter-spacing: 0.5px;
   text-align: center;
@@ -175,7 +179,7 @@ img {
 }
 
 .social #instagram {
-  color: #eeaddf;
+  color: var(--main-color);
   background-color: var(--light-color);
   border-radius: 50%;
   width: 40px;
@@ -283,11 +287,9 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
-  background-color: #eaeaea;
-  border-radius: 1rem;
+  gap: 1.5rem;
+  margin: 1rem auto;
+  padding: 1rem;
 }
 
 .products-container a {
@@ -587,13 +589,11 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #eaeaea;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  width: 100%;
+  margin: 1rem auto;
 }
 
-/* ABOUTUS PAGE */
+/* ABOUT US PAGE */
 .about-us,
 .check-out {
   background-color: #eeaddf;
@@ -779,6 +779,7 @@ a {
 @media (min-width: 1024px) {
 
   /* NAVBAR */
+
   .navbar .navbar-header {
     width: 75%;
   }
@@ -822,7 +823,7 @@ a {
     text-decoration: none;
     width: 100%;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
+    transition: all 300ms ease;
   }
 
   .navbar-menu ul a:hover {
@@ -830,12 +831,13 @@ a {
   }
 
   .navbar-menu ul a.active {
-    padding: 1rem;
-    border-radius: 5rem;
+    padding: 1rem 0rem;
+    border-radius: .5rem;
   }
 
   /* FOOTER */
   .footer {
+    background-color: var(--main-color);
     font-size: 1rem;
   }
 
@@ -1068,10 +1070,10 @@ a {
 
   /* SLIDE SHOW */
   .slides-container {
-    max-width: 75%;
+    max-width: 50%;
     overflow: hidden;
-    margin: 1rem auto;
-    border-radius: 1rem;
+    margin-top: 2rem;
+    border-radius: .5rem;
   }
 
   /* HOME PAGE */

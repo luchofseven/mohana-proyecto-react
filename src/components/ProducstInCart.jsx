@@ -35,7 +35,7 @@ export default function ProductsInCart () {
           Total de productos: <b>{getItemQty()}</b>
         </h4>
         <h4>
-          TOTAL A PAGAR: <b>${getItemPrice()}</b>
+          Total: <b>$ {getItemPrice()}.00</b>
         </h4>
         <button
           onClick={() => {
