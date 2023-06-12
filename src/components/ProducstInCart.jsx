@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
-import { toastNotify } from '../notify/toastNotify'
 import CartProduct from './CartProduct'
 
 export default function ProductsInCart () {
@@ -11,7 +10,6 @@ export default function ProductsInCart () {
     const confirm = window.confirm('¿Desea eliminar éste producto del carrito?')
     if (confirm) {
       deleteItem(id)
-      toastNotify({ message: '¡Se eliminó el producto del carrito!' })
     }
   }
 
@@ -21,7 +19,6 @@ export default function ProductsInCart () {
     )
     if (confirm) {
       clear()
-      toastNotify({ message: '¡Se vació correctamente el carrito!' })
     }
   }
 

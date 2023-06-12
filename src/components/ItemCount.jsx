@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
-import { ToastContainer, toast } from 'react-toastify'
-import { toastNotify } from '../notify/toastNotify'
+import { toast, Toaster } from 'react-hot-toast'
 
 export default function ItemCount ({ product }) {
   const { stock } = product
@@ -27,8 +26,8 @@ export default function ItemCount ({ product }) {
     if (count !== 0) {
       if (stockAvailable !== 0 || count > 0) {
         addItem(product, count)
-        toastNotify({ message: `¡Agregaste ${count} ${product.name} al carrito!` })
-        setCount(0)
+        toast.success(`¡Agregaste ${count} ${product.name} al carrito!`)
+        setCount(1)
       }
     } else {
       toast.error('¡No puedes agregar 0 productos!')
@@ -37,18 +36,7 @@ export default function ItemCount ({ product }) {
 
   return (
     <div className='item-count'>
-      <ToastContainer
-        position='top-center'
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover={false}
-        theme='colored'
-      />
+      <Toaster />
       <h3>{count}</h3>
       <small>Disponible: {stockAvailable} unidades</small>
       <button onClick={handleChangeSubtract}>-</button>

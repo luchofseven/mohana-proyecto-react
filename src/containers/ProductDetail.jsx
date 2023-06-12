@@ -14,6 +14,7 @@ export default function ProductDetail () {
   useEffect(() => {
     if (!id) return
     setLoading(true)
+
     getProduct(id)
       .then(res => {
         const response = { id: res.id, ...res.data() }

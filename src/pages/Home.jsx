@@ -6,7 +6,6 @@ export default function Home () {
     <section className='section'>
       <SlidesShow />
       <article className='home-products'>
-        <h4>Nuestros productos</h4>
         <ProductsContainer />
       </article>
     </section>
